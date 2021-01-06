@@ -1,0 +1,116 @@
+<style>
+  .container{
+    display: flex;
+  width: 816px;
+  height: 1344px;
+  }
+
+  .carousel{
+    width: 100%;
+    padding: 30px;
+    position: relative;
+  }
+
+  .carousel__container{
+    /* white-space:nowrap; */
+    margin: 10px 0px;
+    padding-bottom: 10px;
+  }
+
+  .carousel-item{
+    /* background: palevioletred; */
+    border-style: solid;
+
+    border-radius: 0px;
+    overflow: hidden;
+    margin-right: 10px;
+    display: inline-block;
+    cursor: pointer;
+    /* suavizar animacion */
+    transition: 450ms all;
+    transform-origin: center left;
+    position: relative;
+
+  }
+
+  /* efectos de animacion */
+  /* .carousel-item:hover ~ .carousel-item{
+    transform: translate3d(100px ,0 , 0);
+  }
+  .carousel__container:hover .carousel-item{
+    opacity: 0.3;
+  }
+
+  .carousel__container:hover .carousel-item:hover{
+    transform: scale(1.5);
+    opacity: 1;
+  } */
+
+  .carousel-item__img{
+    object-fit: fill;
+  }
+
+  .carousel-item__details{
+    /* background: linear-gradient(to top, rgba(0,0,0,0.9) 0% , rgba(0, 0, 0, 0.0) 100%); */
+    font-size: 1.5em;
+    /* opacity: 0; */
+    /* transition: 450ms opacity; */
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  /* .carousel-item__details:hover{
+  opacity: 1;
+  } */
+
+  .carousel-item__details--title{
+    margin: 0px 0px 0px 0px;
+    padding: 50px 0px 0px 0px;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    font-family: 'Eurostile', sans-serif;
+  }
+
+  .carousel-item__details--model{
+    padding: 20px 0% 0% 0%;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    font-family: 'Eurostile', sans-serif;
+  }
+
+  .carousel-item__details--subtitle{
+    padding-top: 0px;
+    font-style: italic;
+    text-align: center;
+    color: rgb(220, 37, 53);
+    font-family: 'Franklin Gothic Demi Cond', arial;
+  }
+
+  .carousel-item__details--price{
+    margin:2px;
+    padding-top: 0px;
+    font-style: italic;
+    text-align: center;
+    color: rgb(220, 37, 53);
+    font-family: 'Franklin Gothic Demi Cond', arial;
+  }
+
+  .carousel-item__details--description{
+    padding: 20px 10px 0px 10px;
+    color: black;
+    font-family: 'Tw Cen MT Condensed', sans-serif;
+  }
+
+  .carousel-item__details--features{
+    margin: 0px;
+    padding: 0px 0px 0px 10px;
+    color: black;
+    font-family: 'Tw Cen MT Condensed', sans-serif;
+  }
+</style>

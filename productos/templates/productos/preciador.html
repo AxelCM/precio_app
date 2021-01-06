@@ -1,0 +1,32 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% include 'productos/style.html'%}
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+    <section class="carousel">
+        <div class="carousel__container">
+          {%for i in counter%}
+          <div class="carousel-item">
+            <img class="carousel-item__img" src="{{pricer.season.background.url}}"  alt="">
+            <div class="carousel-item__details">
+              <div class="">
+              <p class="carousel-item__details--title">{{pricer.product.name}}</p>
+            </div>
+            {% if pricer.product.description %}
+              <p class="carousel-item__details--description">{{pricer.product.description}}</p>
+            {% endif %}
+              <p class="carousel-item__details--subtitle">Q.{{pricer.product.price}}</p>
+            </div>
+          </div>
+          {%endfor%}
+        </div>
+    </section>
+  </div>
+
+  </body>
+</html>

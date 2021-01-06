@@ -1,0 +1,55 @@
+{%load static%}
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link href="https://allfont.es/allfont.css?fonts=franklin-gothic-demi-cond" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    {% include 'productos/multi_style.html'%}
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+
+
+    <section class="carousel">
+        <div class="carousel__container">
+          {%for p in pricers%}
+            {%for i in p.cant|times%}
+          <div class="carousel-item" style="height:{{p.size.vertical}}{{p.size.type.unit}}; width:{{p.size.horizontal}}{{p.size.type.unit}};">
+            <img class="carousel-item__img" src="{{p.season.background.url}}" style="height:{{p.size.vertical}}{{p.size.type.unit}};
+                width:{{p.size.horizontal}}{{p.size.type.unit}};">
+            <div class="carousel-item__details">
+              <div class="">
+              <p class="carousel-item__details--title" style="font-size: {{p.size.title}}{{p.size.type.unit}};">{{p.computer.model}}</p>
+            </div>
+              <p class="carousel-item__details--features" style="font-size: {{p.size.description}}{{p.size.type.unit}};"><b>Procesador: </b>{{p.computer.cpu}}</p>
+              {% if p.computer.gpu %}
+              <p class="carousel-item__details--features" style="font-size: {{p.size.description}}{{p.size.type.unit}};"><b>Tarjeta Grafica: </b>{{p.computer.gpu}}</p>
+              {% endif %}
+              <p class="carousel-item__details--features" style="font-size: {{p.size.description}}{{p.size.type.unit}};"><b>Memoria RAM: </b>{{p.computer.ram}}GB
+                {% if p.computer.hdd %}
+                <p class="carousel-item__details--features" style="font-size: {{p.size.description}}{{p.size.type.unit}};"><b>HDD: </b>{{p.computer.hdd}}
+                {% endif %}
+                {% if p.computer.ssd %}
+                <p class="carousel-item__details--features" style="font-size: {{p.size.description}}{{p.size.type.unit}};"><b>SSD: </b>{{p.computer.ssd}}
+                {% endif %}
+                <p class="carousel-item__details--features" style="font-size: {{p.size.description}}{{p.size.type.unit}};"><b>Pantalla: </b>{{p.computer.screen}} {% if p.computer.hz %} {{p.computer.hz}}{% endif %}
+                <p class="carousel-item__details--features" style="font-size: {{p.size.description}}{{p.size.type.unit}};"><b>Sistema Operativo: </b>{{p.computer.system}}</p>
+                {% if p.computer.other %}
+                <p class="carousel-item__details--features" style="font-size: {{p.size.description}}{{p.size.type.unit}};"><b>Adicionales: </b>{{p.computer.others}}</p>
+                {% endif %}
+              <p class="carousel-item__details--features" style="font-size: {{p.size.description}}{{p.size.type.unit}};">{{p.product.description}}</p>
+              <p class="carousel-item__details--price" style="font-size: {{p.size.price}}{{p.size.type.unit}};">Q.{{p.computer.ofert_price}}</p>
+            </div>
+          </div>
+            {%endfor%}
+          {%endfor%}
+        </div>
+    </section>
+  </div>
+
+
+  </body>
+</html>

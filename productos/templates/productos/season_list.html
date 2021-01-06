@@ -1,0 +1,52 @@
+{% extends "productos/base.html" %}
+{% block title %}Temporada{% endblock %}
+{% block content %}
+{%include "productos/components/form_errors.html"%}
+<div class="col-auto ml-auto d-print-none">
+  <div class="btn-list">
+    <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modal-season">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
+      Crear Temporada
+    </a>
+    <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#modal-season" aria-label="Create new report">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
+    </a>
+  </div>
+</div>
+<div class="table-responsive">
+<hr>
+<table class="table  table-hover" id="TableResult" width="100%" cellspacing="0">
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Creado por</th>
+    <th>+</th>
+  </tr>
+</thead>
+<tbody>
+  {%for result in seasons%}
+  <tr>
+    <td>{{result.name}}</td>
+    <td>{{result.user_creation}}</td>
+    <td><a class="btn btn-outline-secondary" href="#">Abrir</a></td>
+  </tr>
+{%endfor%}
+</tbody>
+</table>
+</div>
+{% include "productos/components/modals/new_season.html" %}
+
+
+{% endblock %}
+
+{%block script%}
+{%include 'productos/components/dataTable-es.js'%}
+</script>
+{%if messages%}
+<script>
+  {%include 'productos/components/sweet_alert.js'%}
+  {%include 'productos/components/sweet_alert_error.js'%}
+</script>
+{%endif%}
+
+{%endblock%}

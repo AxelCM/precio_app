@@ -1,0 +1,188 @@
+<!doctype html>
+{%load static%}
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>{% block title %}{% endblock %}</title>
+    <!-- CSS files -->
+    <link href="{%static '/dist/css/tabler.min.css'%}" rel="stylesheet"/>
+    <link href="{%static '/dist/css/tabler-flags.min.css'%}" rel="stylesheet"/>
+    <link href="{%static '/dist/css/tabler-payments.min.css'%}" rel="stylesheet"/>
+    <link href="{%static '/dist/css/tabler-vendors.min.css'%}" rel="stylesheet"/>
+    <link href="{%static '/dist/css/demo.min.css'%}" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.22/r-2.2.6/datatables.min.css"/>
+    <link href="https://allfont.es/allfont.css?fonts=franklin-gothic-demi-cond" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
+
+    <style>
+      body { display: none; }
+    </style>
+  </head>
+  <body class="antialiased">
+    <div class="page">
+      <header class="navbar navbar-expand-md navbar-light d-print-none">
+        <div class="container-xl">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pr-0 pr-md-3">
+            GENERADOR DE PRECIOS
+          </h1>
+        </div>
+      </header>
+      <div class="navbar-expand-md">
+        <div class="collapse navbar-collapse" id="navbar-menu">
+          <div class="navbar navbar-light">
+            <div class="container-xl">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'index'%}" >
+                    <span class="nav-link-icon d-md-none d-lg-inline-block"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="5 12 3 12 12 3 21 12 19 12" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
+                    </span>
+                    <span class="nav-link-title">
+                      Inicio
+                    </span>
+                  </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" role="button" aria-expanded="false" >
+                    <span class="nav-link-icon d-md-none d-lg-inline-block"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3" /><line x1="12" y1="12" x2="20" y2="7.5" /><line x1="12" y1="12" x2="12" y2="21" /><line x1="12" y1="12" x2="4" y2="7.5" /><line x1="16" y1="5.25" x2="8" y2="9.75" /></svg>
+                    </span>
+                    <span class="nav-link-title">
+                      Preciadores
+                    </span>
+                  </a>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-menu-columns">
+                      <div class="dropdown-menu-column">
+                        <a class="dropdown-item" href="{%url 'season_list'%}" >
+                          Temporada
+                        </a>
+                        <a class="dropdown-item" href="{%url 'pricer_list'%}" >
+                          Lista de preciadores
+                        </a>
+                        <a class="dropdown-item" href="{%url 'pricer_computer_list'%}" >
+                          Preciadoes de Computadoras
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" role="button" aria-expanded="false" >
+                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="12 4 4 8 12 12 20 8 12 4" /><polyline points="4 12 12 16 20 12" /><polyline points="4 16 12 20 20 16" /></svg>
+                    </span>
+                    <span class="nav-link-title">
+                      Productos
+                    </span>
+                  </a>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-menu-columns">
+                      <div class="dropdown-menu-column">
+                        <a class="dropdown-item" href="{%url 'product_list'%}" >
+                          Productos
+                        </a>
+                        <a class="dropdown-item" href="{%url 'computer_list'%}" >
+                          Computadoras y Laptops
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#navbar-profile" data-bs-toggle="dropdown" role="button" aria-expanded="false" >
+                    <span class="nav-link-title">
+                      {{request.user.first_name}} {{request.user.last_name}}
+                    </span>
+                  </a>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-menu-columns">
+                      <div class="dropdown-menu-column">
+                        <a class="dropdown-item" href="{%url 'admin:logout'%}" >
+                          Cerrar Sesión
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#navbar-profile" data-bs-toggle="dropdown" role="button" aria-expanded="false" >
+                    <span class="nav-link-title">
+                      Configuración
+                    </span>
+                  </a>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-menu-columns">
+                      <div class="dropdown-menu-column">
+                        <a class="dropdown-item" href="{%url 'admin:logout'%}" >
+                          Editar Plantilla
+                        </a>
+                        <a class="dropdown-item" href="{%url 'admin:logout'%}" >
+                          Cerrar Sesión
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
+                {# Search Bar here! #}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="container-xl">
+          {% block content %}
+
+          {% endblock %}
+
+        </div>
+        </div>
+        <footer class="footer footer-transparent d-print-none">
+          <div class="container">
+            <div class="row text-center align-items-center flex-row-reverse">
+              <div class="col-lg-auto ml-lg-auto">
+                <ul class="list-inline list-inline-dots mb-0">
+                </ul>
+              </div>
+              <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                <ul class="list-inline list-inline-dots mb-0">
+                  <li class="list-inline-item">
+                    {# Footer Here! #}
+                  </li>
+                  <li class="list-inline-item">
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.22/r-2.2.6/datatables.min.js"></script>
+
+    <!-- Libs JS -->
+    <script src="{%static '/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js'%}"></script>
+    <!-- Tabler Core -->
+    <script src="{%static '/dist/js/tabler.min.js'%}"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+    <script>
+      document.body.style.display = "block"
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  {% block script %}
+
+    {% endblock %}
+  </body>
+</html>
