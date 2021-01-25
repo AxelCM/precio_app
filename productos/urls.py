@@ -16,5 +16,6 @@ urlpatterns = [
     path('ver/productos/' , ProductList.as_view() , name='product_list'),
     path('ver/computadora-laptops/' , ComputerList.as_view() , name='computer_list'),
     path('generar-precios/' , makePricer , name='pricer_generate'),
+    path('generar-precios/laptops' , makePricerPC , name='pricer_generate_pc'),
 
 ]

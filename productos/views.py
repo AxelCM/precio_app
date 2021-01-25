@@ -169,6 +169,26 @@ def makePricer(request):
     return HttpResponseRedirect(reverse('index'))
 
 
+def makePricerPC(request):
+    # 1 para size laptop
+    # 7 season normal
+    id_season = request.GET.get('season')
+    id_size = request.GET.get('size')
+    size = Size.objects.get(pk=id_size)
+    season_design = Season.objects.get(pk=id_season)
+    computers = Computer.objects.all()
+    for p in computers:
+        product = Computer.objects.get(pk=p.pk)
+        pricer = ComputerPricer.objects.create(
+        season = season_design,
+        computer = product,
+        size = size,
+        cant = 1
+        )
+        pricer.save()
+    return HttpResponseRedirect(reverse('index'))
+
+
 class LoginView(SuccessMessageMixin , auth_views.LoginView):
     template_name = 'productos/login.html'
     success_message = "Bienvenido!"

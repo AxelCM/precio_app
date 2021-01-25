@@ -26,8 +26,7 @@
     <th>
       <input type="checkbox" onClick="toggle()" id="validator">Todos<br/>
     </th>
-    <th>Temporada</th>
-    <th>Nombre</th>
+    <th>Equipo</th>
     <th>Cantidad</th>
     <th>+</th>
   </tr>
@@ -38,8 +37,7 @@
     <td>
         <input type="checkbox"  name="id" value="{{p.pk}}" >
     </td>
-    <td>{{p.season.name}}</td>
-    <td>{{p.Computer.model}} {{p.Computer.ram}} {{p.Computer.storage}}
+    <td>{{p.computer.model}}
       {% if p.Computer.storage_aux %}{{p.Computer.storage_aux}}{% endif %}
       {{p.Computer.screen}}
       {{p.Computer.system}}

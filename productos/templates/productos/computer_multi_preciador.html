@@ -35,7 +35,7 @@
                 {% if p.computer.ssd %}
                 <p class="carousel-item__details--features" style="font-size: {{p.size.description}}{{p.size.type.unit}};"><b>SSD: </b>{{p.computer.ssd}}
                 {% endif %}
-                <p class="carousel-item__details--features" style="font-size: {{p.size.description}}{{p.size.type.unit}};"><b>Pantalla: </b>{{p.computer.screen}} {% if p.computer.hz %} {{p.computer.hz}}{% endif %}
+                <p class="carousel-item__details--features" style="font-size: {{p.size.description}}{{p.size.type.unit}};"><b>Pantalla: </b>{{p.computer.screen}}" {% if p.computer.hz %} {{p.computer.hz}}{% endif %}
                 <p class="carousel-item__details--features" style="font-size: {{p.size.description}}{{p.size.type.unit}};"><b>Sistema Operativo: </b>{{p.computer.system}}</p>
                 {% if p.computer.other %}
                 <p class="carousel-item__details--features" style="font-size: {{p.size.description}}{{p.size.type.unit}};"><b>Adicionales: </b>{{p.computer.others}}</p>

@@ -1,2 +1,4 @@
-*.sqlit3
+*.sqlite3
 /migrations
+*.pyc
+precio_app/settings.py
